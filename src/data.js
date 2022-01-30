@@ -71,7 +71,7 @@ export const products = [
   },
   {
     id: 6,
-    name: "nordFace",
+    name: "northFace",
     description: [
       { support: "lorem ipsopm text" },
       { support: " lorem ipsopm " },
