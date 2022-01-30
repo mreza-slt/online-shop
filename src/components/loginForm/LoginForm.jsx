@@ -34,7 +34,7 @@ const LoginForm = () => {
   const redirect = query.get("redirect") || "/";
 
   useEffect(() => {
-    if (auth) history(redirect);
+    if (auth) history(`/${redirect}`);
   }, [auth, redirect]);
 
   const onSubmit = async (values) => {
@@ -43,7 +43,7 @@ const LoginForm = () => {
       setAuth(data);
       // localStorage.setItem("stateAuthLogin", JSON.stringify(data));
       setError(null);
-      history(redirect);
+      history(`/${redirect}`);
     } catch (error) {
       if (error.response && error.response.data.message) {
         setError(error.response.data.message);

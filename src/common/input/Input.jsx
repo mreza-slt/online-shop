@@ -9,6 +9,7 @@ const Input = ({ formik, label, type = "text", name }) => {
         id={name}
         {...formik.getFieldProps(name)}
         name={name}
+        autoComplete="on"
       />
       {formik.errors[name] && formik.touched[name] ? (
         <div className="text-danger">{formik.errors[name]}</div>
