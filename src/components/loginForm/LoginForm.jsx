@@ -1,10 +1,10 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../../common/input/Input";
 import { useQuery } from "../../hooks/useQuery";
-import { useAuthDispatch } from "../../providers/AuthProvider";
+import { useAuth, useAuthDispatch } from "../../providers/AuthProvider";
 import { loginUser } from "../../services/loginUser";
 import "./loginForm.css";
 
@@ -28,9 +28,14 @@ const LoginForm = () => {
   const [error, setError] = useState(null);
   const history = useNavigate();
   const setAuth = useAuthDispatch();
+  const auth = useAuth();
 
   const query = useQuery();
   const redirect = query.get("redirect") || "/";
+
+  useEffect(() => {
+    if (auth) history(redirect);
+  }, [auth, redirect]);
 
   const onSubmit = async (values) => {
     try {

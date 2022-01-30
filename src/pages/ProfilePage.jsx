@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../providers/AuthProvider";
 import "./cartPage.css";
 
 const ProfilePage = () => {
-  const user = JSON.parse(localStorage.getItem("stateAuth"));
+  const user = useAuth() || JSON.parse(localStorage.getItem("stateAuth"));
 
   return (
     <section className="summery" style={{ margin: "2rem auto" }}>
