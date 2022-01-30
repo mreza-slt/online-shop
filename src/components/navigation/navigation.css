@@ -1,0 +1,57 @@
+header {
+    background: #ede9fe;
+    height: 4.5rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+.mainNavigation nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+}
+.mainNavigation .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainNavigation ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.mainNavigation li {
+    margin: 1rem;
+}
+.mainNavigation a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: black;
+}
+
+.mainNavigation a:hover,
+.mainNavigation .active {
+    color: #6d28d9;
+    background: #fff;
+}
+
+.mainNavigation span {
+    padding: 2px 0.4rem 0.1rem 0.4rem;
+    margin-left: 0.3rem;
+    background: #ef4444;
+    border-radius: 50%;
+    color: #fff;
+}
+.user-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

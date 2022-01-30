@@ -1,0 +1,59 @@
+.shopping-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 10rem;
+    background: #fff;
+    padding: 0 1rem;
+}
+.description {
+    display: flex;
+    flex-direction: column;
+}
+.description span {
+    margin-bottom: 0.5rem;
+}
+.btnGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnGroup button {
+    border: 1px solid #6d28d9;
+    padding: 6px 12px;
+    outline: none;
+    background: #fff;
+    color: #6d28d9;
+}
+.btnGroup button:first-child {
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+}
+.btnGroup button:last-child {
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.btnGroup button:nth-child(2) {
+    border-right: none;
+    border-left: none;
+}
+.shopping-cart .image {
+    background: #fff;
+    margin: 0.5rem;
+    width: 9rem;
+    height: 10rem;
+}
+.shopping-cart img {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 9rem;
+    height: 8rem;
+    background: #fff;
+}
+.shopping-cart .image p {
+    background: #ccc;
+    border-radius: 5px;
+    width: 9rem;
+}
