@@ -11,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import AuthProvider from "./providers/AuthProvider";
 import ProfilePage from "./pages/ProfilePage";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/profile/edit" element={<EditProfile />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/checkout" element={<CheckOutPage />} />
               </Routes>

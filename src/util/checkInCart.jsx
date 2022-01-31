@@ -1,3 +1,3 @@
 export const checkInCart = (cart, product) => {
-  return cart.find((c) => c.id === product.id);
+  return cart.find((c) => c._id === product._id);
 };

@@ -1,12 +1,23 @@
 import { Link } from "react-router-dom";
-import { products } from "../data";
 import { useCart, useDispatch } from "../providers/CartProviders";
 import { checkInCart } from "../util/checkInCart";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { getAllProducts } from "../services/getAllProducts";
 
 const HomePage = () => {
   const { cart } = useCart();
   const dispatch = useDispatch();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getAllProducts()
+      .then((res) => setProducts(res.data))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
   const addProductHandler = (product) => {
     if (!checkInCart(cart, product)) {

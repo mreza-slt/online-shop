@@ -6,7 +6,7 @@
 
 .App {
   text-align: center;
-  background: #f3f4f6;
+  background: #fff;
 }
 
 .productList {
@@ -52,6 +52,7 @@
 .del {
   text-decoration: line-through;
   opacity: 0.6;
+  z-index: -1;
 }
 .text-danger {
   color: red;

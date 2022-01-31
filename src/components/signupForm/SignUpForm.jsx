@@ -15,10 +15,12 @@ const SignUpForm = () => {
   const auth = useAuth();
 
   const query = useQuery();
-  const redirect = query.get("redirect") || "/";
+  const redirect = query.get("redirect");
 
   useEffect(() => {
-    if (auth) history(`/${redirect}`);
+    if (auth) {
+      redirect === "/" ? history("/") : history(`/${redirect}`);
+    }
   }, [auth, redirect]);
 
   // 1.managing states
@@ -40,7 +42,9 @@ const SignUpForm = () => {
       setAuth(data);
       // localStorage.setItem("stateAuth", JSON.stringify(data));
       setError(null);
-      history(`/${redirect}`);
+      {
+        redirect === "/" ? history("/") : history(`/${redirect}`);
+      }
     } catch (error) {
       if (error.response && error) {
         setError(error.response.data.message);

@@ -8,7 +8,7 @@ const CardProviders = ({ children }) => {
   const initialState = {
     cart: [],
     total: 0,
-    disCount: 0,
+    discount: 0,
   };
 
   const [cart, dispatch] = useReducer(cartReducer, initialState);

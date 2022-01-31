@@ -1,6 +1,6 @@
 const addToCart = (state, payload) => {
   const updatedCart = [...state.cart];
-  const index = updatedCart.findIndex((item) => item.id === payload.id);
+  const index = updatedCart.findIndex((item) => item._id === payload._id);
   if (index < 0) {
     updatedCart.push({ ...payload, quantity: 1 });
   } else {
@@ -12,22 +12,22 @@ const addToCart = (state, payload) => {
     ...state,
     cart: updatedCart,
     total: state.total + payload.price,
-    disCount: state.disCount + payload.disCount,
+    discount: state.discount + payload.discount,
   };
 };
 
 const decrementCart = (state, payload) => {
   const updatedCart = [...state.cart];
-  const index = updatedCart.findIndex((item) => item.id === payload.id);
+  const index = updatedCart.findIndex((item) => item._id === payload._id);
 
   const updateItem = { ...updatedCart[index] };
   if (updateItem.quantity === 1) {
-    const filteredCart = updatedCart.filter((cart) => cart.id !== payload.id);
+    const filteredCart = updatedCart.filter((cart) => cart._id !== payload._id);
     return {
       ...state,
       cart: filteredCart,
       total: state.total - payload.price,
-      disCount: state.disCount - payload.disCount,
+      discount: state.discount - payload.discount,
     };
   } else {
     updateItem.quantity--;
@@ -36,19 +36,19 @@ const decrementCart = (state, payload) => {
       ...state,
       cart: updatedCart,
       total: state.total - payload.price,
-      disCount: state.disCount - payload.disCount,
+      discount: state.discount - payload.discount,
     };
   }
 };
 
 const removeCart = (state, payload) => {
   const updatedCart = [...state.cart];
-  const filteredCart = updatedCart.filter((cart) => cart.id !== payload.id);
+  const filteredCart = updatedCart.filter((cart) => cart._id !== payload._id);
   return {
     ...state,
     cart: filteredCart,
     total: state.total - payload.price,
-    disCount: state.disCount - payload.disCount,
+    discount: state.discount - payload.discount,
   };
 };
 const cartReducer = (state, action) => {

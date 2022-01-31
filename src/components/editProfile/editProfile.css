@@ -1,0 +1,16 @@
+.edit {
+    margin: 1rem auto;
+    width: 20rem;
+    padding: 1rem;
+
+    border: 1px solid var(--light);
+    border-radius: 5px;
+}
+.edit button {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.edit input {
+    width: 100%;
+    margin-bottom: 1rem;
+}

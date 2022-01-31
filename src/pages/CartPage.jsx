@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartComponent from "../components/cart/CartComponent";
 import { useCart, useDispatch } from "../providers/CartProviders";
 import "./cartPage.css";
@@ -13,7 +13,7 @@ const CartPage = () => {
         <>
           <section className="cartList">
             {cart.map((item) => (
-              <CartComponent key={item.id} item={item} dispatch={dispatch} />
+              <CartComponent key={item._id} item={item} dispatch={dispatch} />
             ))}
           </section>
           <CartSummery />
@@ -35,7 +35,7 @@ const CartPage = () => {
 export default CartPage;
 
 const CartSummery = () => {
-  const { disCount, total } = useCart();
+  const { total, discount } = useCart();
 
   return (
     <section className="summery">
@@ -48,11 +48,11 @@ const CartSummery = () => {
       </div>
       <div className="item-2">
         <div>Total discounts</div>
-        <div>{disCount} $</div>
+        <div> {discount}$</div>
       </div>
       <div className="item-3">
         <div>Total products</div>
-        <div>{total - disCount} $</div>
+        <div>{total - discount} $</div>
       </div>
       <Link to="/signup?redirect=checkout">
         <button className="btn btn-summery">Countinue order</button>

@@ -22,7 +22,7 @@ const ProfilePage = () => {
         <div>phoneNumber</div>
         <div>{user.phoneNumber}</div>
       </div>
-      <Link to="/checkout">
+      <Link to="/profile/edit">
         <button className="btn btn-summery">Edit</button>
       </Link>
     </section>
