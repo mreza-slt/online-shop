@@ -1,11 +1,11 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartComponent from "../components/cart/CartComponent";
-import { useCart, useDispatch } from "../providers/CartProviders";
+
 import "./cartPage.css";
 
 const CartPage = () => {
-  const { cart } = useCart();
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
 
   return (
     <main className="cart">
@@ -13,7 +13,7 @@ const CartPage = () => {
         <>
           <section className="cartList">
             {cart.map((item) => (
-              <CartComponent key={item._id} item={item} dispatch={dispatch} />
+              <CartComponent key={item._id} item={item} />
             ))}
           </section>
           <CartSummery />
@@ -35,7 +35,7 @@ const CartPage = () => {
 export default CartPage;
 
 const CartSummery = () => {
-  const { total, discount } = useCart();
+  const { total, discount } = useSelector((state) => state.cart);
 
   return (
     <section className="summery">

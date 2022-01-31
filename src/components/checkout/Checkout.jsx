@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useAuth } from "../../providers/AuthProvider";
-import { useCart } from "../../providers/CartProviders";
+import { useSelector } from "react-redux";
 import "./checkout.css";
 
 const Checkout = () => {
-  const auth = useAuth() || JSON.parse(localStorage.getItem("stateAuth"));
+  const auth =
+    useSelector((state) => state.user.user) ||
+    JSON.parse(localStorage.getItem("stateAuth"));
 
   return (
     <section className="parrent-checkout">
@@ -38,7 +39,7 @@ export default Checkout;
 const CartSummery = () => {
   const [isShow, setIsShow] = useState(false);
 
-  const { discount, total, cart } = useCart();
+  const { discount, total, cart } = useSelector((state) => state.cart);
 
   return (
     <div className="checkout-summery">

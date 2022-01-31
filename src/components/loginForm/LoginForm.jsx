@@ -1,10 +1,11 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../../common/input/Input";
 import { useQuery } from "../../hooks/useQuery";
-import { useAuth, useAuthDispatch } from "../../providers/AuthProvider";
+import { setUserData } from "../../redux/user/userActions";
 import { loginUser } from "../../services/loginUser";
 import "./loginForm.css";
 
@@ -27,15 +28,14 @@ const validationSchema = Yup.object({
 const LoginForm = () => {
   const [error, setError] = useState(null);
   const history = useNavigate();
-  const setAuth = useAuthDispatch();
-  const log = "log";
+  const dispatch = useDispatch();
   const query = useQuery();
   const redirect = query.get("redirect") || "/";
 
   const onSubmit = async (values) => {
     try {
       const { data } = await loginUser(values);
-      setAuth(data);
+      dispatch(setUserData(data));
       // localStorage.setItem("stateAuthLogin", JSON.stringify(data));
       setError(null);
 

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { useCart, useDispatch } from "../providers/CartProviders";
 import { checkInCart } from "../util/checkInCart";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../services/getAllProducts";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/cart/cartActions";
 
 const HomePage = () => {
-  const { cart } = useCart();
+  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const HomePage = () => {
 
   const addProductHandler = (product) => {
     if (!checkInCart(cart, product)) {
-      dispatch({ type: "ADD_TO_CART", payload: product });
+      dispatch(addToCart(product));
     }
 
     toast.success(

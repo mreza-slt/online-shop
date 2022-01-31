@@ -1,3 +1,5 @@
+import { ADD_TO_CART, DECREMENT_CART, REMOVE_CART } from "./cartType";
+
 const addToCart = (state, payload) => {
   const updatedCart = [...state.cart];
   const index = updatedCart.findIndex((item) => item._id === payload._id);
@@ -51,15 +53,20 @@ const removeCart = (state, payload) => {
     discount: state.discount - payload.discount,
   };
 };
-const cartReducer = (state, action) => {
+const initialState = {
+  cart: [],
+  total: 0,
+  discount: 0,
+};
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_TO_CART":
+    case ADD_TO_CART:
       return addToCart(state, action.payload);
 
-    case "DECREMENT_CART":
+    case DECREMENT_CART:
       return decrementCart(state, action.payload);
 
-    case "REMOVE_CART": {
+    case REMOVE_CART: {
       return removeCart(state, action.payload);
     }
 

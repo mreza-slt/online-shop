@@ -1,11 +1,10 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../../providers/AuthProvider";
-import { useCart } from "../../providers/CartProviders";
 import "./navigation.css";
 
 const Navigation = () => {
-  const { cart } = useCart();
-  const userData = useAuth();
+  const cart = useSelector((state) => state.cart.cart);
+  const userData = useSelector((state) => state.user.user);
   return (
     <header className="mainNavigation">
       <nav>

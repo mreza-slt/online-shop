@@ -1,13 +1,16 @@
-import { useAuth, useAuthDispatch } from "../../providers/AuthProvider";
 import "./editProfile.css";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import Input from "../../common/input/Input";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserData } from "../../redux/user/userActions";
 
 const EditProfileComponent = () => {
-  const user = useAuth() || JSON.parse(localStorage.getItem("stateAuth"));
-  const setAuth = useAuthDispatch();
+  const user =
+    useSelector((state) => state.user.user) ||
+    JSON.parse(localStorage.getItem("stateAuth"));
+  const dispatch = useDispatch();
 
   // 1.managing states
   const initialValues = {
@@ -19,7 +22,7 @@ const EditProfileComponent = () => {
   const history = useNavigate();
   const onSubmit = (values) => {
     history("/profile");
-    setAuth(values);
+    dispatch(setUserData(values));
   };
 
   //3.validation state

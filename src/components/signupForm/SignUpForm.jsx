@@ -1,18 +1,20 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../../common/input/Input";
 import { useQuery } from "../../hooks/useQuery";
-import { useAuth, useAuthDispatch } from "../../providers/AuthProvider";
+import { setUserData } from "../../redux/user/userActions";
 import { signupUser } from "../../services/signupUser";
 import "./signupForm.css";
 
 const SignUpForm = () => {
   const [error, setError] = useState(null);
-  const setAuth = useAuthDispatch();
+  const dispatch = useDispatch();
   const history = useNavigate();
-  const auth = useAuth();
+  const auth = useSelector((state) => state.user.user);
 
   const query = useQuery();
   const redirect = query.get("redirect");
@@ -39,7 +41,7 @@ const SignUpForm = () => {
 
     try {
       const { data } = await signupUser(userData);
-      setAuth(data);
+      dispatch(setUserData(data));
       // localStorage.setItem("stateAuth", JSON.stringify(data));
       setError(null);
       {

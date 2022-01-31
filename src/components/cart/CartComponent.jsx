@@ -1,19 +1,26 @@
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import {
+  addToCart,
+  decrementCart,
+  removeCart,
+} from "../../redux/cart/cartActions";
 import "./cart.css";
 
-const CartComponent = ({ item, dispatch }) => {
-  const addToCart = (item) => {
-    dispatch({ type: "ADD_TO_CART", payload: item });
+const CartComponent = ({ item }) => {
+  const dispatch = useDispatch();
+  const addCart = (item) => {
+    dispatch(addToCart(item));
     toast.success(` Another one ${item.name} added`);
   };
 
   const decrementToCart = (item) => {
-    dispatch({ type: "DECREMENT_CART", payload: item });
+    dispatch(decrementCart(item));
     toast.error(`${item.name} Decreased...!`);
   };
 
-  const removeCart = (item) => {
-    dispatch({ type: "REMOVE_CART", payload: item });
+  const deleteCart = (item) => {
+    dispatch(removeCart(item));
     toast.error(`${item.name} Removed cart`);
   };
   return (
@@ -31,7 +38,7 @@ const CartComponent = ({ item, dispatch }) => {
         </div>
 
         <div className="btnGroup">
-          <button onClick={() => addToCart(item)} className="plus-btn">
+          <button onClick={() => addCart(item)} className="plus-btn">
             +
           </button>
           <button>{item.quantity}</button>
@@ -46,7 +53,7 @@ const CartComponent = ({ item, dispatch }) => {
         </div>
 
         <div>
-          <button onClick={() => removeCart(item)} className="btn delete">
+          <button onClick={() => deleteCart(item)} className="btn delete">
             <i className="bi bi-trash-fill"></i>
           </button>
         </div>
