@@ -1,0 +1,28 @@
+label {
+  display: flex;
+  margin-bottom: 5px;
+  font-weight: 800;
+  margin-top: 1.5rem;
+}
+input {
+  width: 100%;
+  padding: 6px 12px;
+
+  color: #444;
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+input + label {
+  display: inline-flex;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-left: 5px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+}

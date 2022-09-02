@@ -1,0 +1,23 @@
+.edit {
+  margin: 1rem auto;
+  max-width: 400px;
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--light);
+  border-radius: 5px;
+}
+.edit form {
+  width: 100% !important;
+}
+.edit button {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.edit input {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 415px) {
+  .edit {
+    margin: 1rem 0.5rem;
+  }
+}

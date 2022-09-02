@@ -1,0 +1,91 @@
+:root {
+  --primary: #6b21a8;
+  --white: #ffffff;
+  --light: #ccc;
+}
+
+.cart {
+  width: 80%;
+  height: 100%;
+  margin: 1rem auto;
+  display: flex;
+}
+.cartList {
+  width: 75%;
+  margin-right: 1rem;
+}
+.empty {
+  margin: 6rem auto;
+}
+.empty div {
+  margin-top: 1rem;
+  color: var(--white);
+}
+.empty h1 {
+  margin: 1rem 0 2rem 0;
+}
+.summery {
+  width: 25%;
+  height: 15rem;
+  background: var(--white);
+  border: 1px solid var(--light);
+  border-radius: 5px;
+}
+.summery div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0.5rem;
+}
+.summery h1 {
+  margin: 0 auto;
+}
+.summery .item-2 {
+  border-bottom: 1px solid var(--light);
+}
+.item-1,
+.item-2 {
+  opacity: 0.6;
+}
+.summery .item-3 {
+  font-weight: bold;
+}
+.btn-summery {
+  width: 90%;
+}
+
+@media (max-width: 1280px) {
+  .cart {
+    flex-direction: column;
+  }
+  .cartList {
+    width: 100%;
+  }
+  .summery {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .cart {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cartList {
+    width: 100%;
+  }
+  .summery {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart {
+    padding: 1rem 0.5rem;
+    min-height: 100%;
+  }
+  .empty {
+    margin: auto;
+  }
+}

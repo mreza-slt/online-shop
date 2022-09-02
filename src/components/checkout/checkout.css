@@ -1,0 +1,126 @@
+.parrent-checkout {
+  height: 100%;
+  width: 85%;
+  margin: 1rem auto;
+}
+
+.checkout {
+  display: flex;
+}
+.shopping-checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 75%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 1rem;
+
+  min-height: 15rem;
+  padding: 1rem;
+}
+.shopping-checkout p {
+  margin-top: 1rem;
+}
+.shopping-checkout span {
+  font-weight: bold;
+}
+
+/* summery */
+.section-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  border-bottom: 1px solid var(--light);
+}
+
+.section-2 div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.section-2 .discount {
+  margin: 2rem 0;
+  color: var(--primary);
+}
+
+.checkout-summery {
+  width: 25%;
+
+  min-height: 15rem;
+  background: var(--white);
+  border: 1px solid var(--light);
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+}
+
+.checkout-summery h1 {
+  margin: 0 auto;
+}
+
+.payment {
+  border: 1px solid var(--light);
+  border-radius: 5px;
+  padding: 3rem 0;
+  margin: 1rem 0;
+  background: var(--white);
+}
+.payment button {
+  width: 98%;
+  height: 3rem;
+  font-size: 1rem;
+}
+.payment h2 {
+  text-align: left;
+  padding: 1rem;
+}
+.isShow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.isShow input {
+  width: 10rem !important;
+  margin-right: 0.5rem;
+}
+.parent-isShow {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1280px) {
+  .shopping-checkout {
+    width: 50%;
+  }
+  .checkout-summery {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .parrent-checkout {
+    width: 98%;
+    margin: 1rem auto;
+  }
+  .checkout {
+    flex-direction: column;
+  }
+  .shopping-checkout {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .checkout-summery {
+    width: 100%;
+  }
+  .payment {
+    padding: 1rem 0;
+    text-align: center;
+    padding: 1rem;
+  }
+  .payment h2 {
+    text-align: center;
+    padding: 0.5rem 0 1rem 0;
+  }
+}
